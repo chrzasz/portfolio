@@ -67,8 +67,15 @@
 
 // console.log(add(2.33, 2.33));
 
-const names = ["Adam", "Robert", "Piotr"];
-const age = [23, 40, 25];
-const mergedArray = names.concat(age);
-console.log(mergedArray);
-console.log(mergedArray.join());
+// const names = ["Adam", "Robert", "Piotr"];
+// const age = [23, 40, 25];
+// const mergedArray = names.concat(age);
+// console.log(mergedArray);
+// console.log(mergedArray.join());
+
+let numbers = [2, 3, 4, 5, 6, -1, 0];
+let numbers1 = [2, 3, 4, 5, 6, -1, 0];
+console.log(numbers);
+console.log(numbers.sort());
+console.log(numbers.sort().reverse());
+console.log(numbers1.reverse());
