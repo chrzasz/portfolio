@@ -75,7 +75,12 @@
 
 let numbers = [2, 3, 4, 5, 6, -1, 0];
 let numbers1 = [2, 3, 4, 5, 6, -1, 0];
+let numbers2 = [2, 3, 4, 5, 6, -1, 0];
 console.log(numbers);
 console.log(numbers.sort());
 console.log(numbers.sort().reverse());
 console.log(numbers1.reverse());
+console.log(numbers2.sort((a, b) => b - a));
+numbers2.push(-20, 100);
+console.log(numbers2);
+console.log(numbers2.sort());
