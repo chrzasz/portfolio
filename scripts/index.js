@@ -61,8 +61,14 @@
 
 // console.log(add(2, undefined));
 
-const add = (a,b) => {
-    return a+b;
-}
+// const add = (a, b) => {
+//    return a + b;
+// };
 
-console.log(add(2,2));
+// console.log(add(2.33, 2.33));
+
+const names = ["Adam", "Robert", "Piotr"];
+const age = [23, 40, 25];
+const mergedArray = names.concat(age);
+console.log(mergedArray);
+console.log(mergedArray.join());
