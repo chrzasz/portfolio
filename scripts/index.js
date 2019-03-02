@@ -47,16 +47,22 @@
 // console.log(story.concat(" ", newStory));
 // console.log(`${story}`.concat(" ", newStory));
 
-function add(a, b) {
-   return a + b;
+// function add(a, b) {
+//    return a + b;
+// }
+
+// console.log(add(2, 4));
+
+// console.log(add(2, "1"));
+
+// console.log(add(2, "a", "b"));
+
+// console.log(add(2, null));
+
+// console.log(add(2, undefined));
+
+const add = (a,b) => {
+    return a+b;
 }
 
-console.log(add(2, 4));
-
-console.log(add(2, "1"));
-
-console.log(add(2, "a", "b"));
-
-console.log(add(2, null));
-
-console.log(add(2, undefined));
+console.log(add(2,2));
