@@ -27,3 +27,17 @@ console.log("abc" && 23 && "last");
 var str = "234";
 var bin = (+str).toString(2);
 console.log(bin);
+
+const b = "";
+
+let count = 0;
+console.log(count);
+let result;
+result = 1;
+console.log(result);
+
+const expenses = 250;
+const myName = "Grzegorz";
+const amount = 1000;
+
+console.log(amount - expenses);
