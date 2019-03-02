@@ -42,7 +42,21 @@
 
 // console.log(amount - expenses);
 
-const story = "This is sample story";
-const newStory = "This is awsome new story";
-console.log(story.concat(" ", newStory));
-console.log(`${story}`.concat(" ", newStory));
+// const story = "This is sample story";
+// const newStory = "This is awsome new story";
+// console.log(story.concat(" ", newStory));
+// console.log(`${story}`.concat(" ", newStory));
+
+function add(a, b) {
+   return a + b;
+}
+
+console.log(add(2, 4));
+
+console.log(add(2, "1"));
+
+console.log(add(2, "a", "b"));
+
+console.log(add(2, null));
+
+console.log(add(2, undefined));
