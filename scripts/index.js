@@ -1,86 +1,81 @@
-// console.log(123 + "test");
-// console.log(" java jest slaba ".replace("slaba", "mocna").repeat(3));
-// console.log(" JAVA   jest      mocno    typowany     ".trim().split(/\s+/));
-// console.log(
-//    " JAVA   jest      mocno    typowany     "
-//       .trim()
-//       .split(" ")
-//       .filter(Boolean)
-// );
+const bodySelector = document.querySelector('body');
+const headerSelector = document.querySelector('header');
+const footerSelector = document.querySelector('footer');
+const toggleBackgroundButtonSelector = document.querySelector('.toggle-background');
+const weatherSelector = document.querySelector('.weather');
+const elements = [headerSelector, footerSelector];
+const allElementsUnderline = document.querySelectorAll('.underline');
+const photoSelector = document.querySelector('img');
+const aLiAllSelectors = document.querySelectorAll('a');
 
-// console.log((234).toString(2));
 
-// console.log((23.2345432).toPrecision(5));
-// console.log((23.2345432).toFixed(3));
 
-// console.log(parseFloat("54.34test"));
-// console.log(isFinite(2e134));
+toggleBackgroundButtonSelector.addEventListener('click', () => {
+    if (bodySelector.classList.contains('background-white')) {
+        bodySelector.classList.remove('background-white');
+        bodySelector.classList.add('background-dark');
+        elements.forEach(e => {
+            e.classList.remove('background-blue'); 
+            e.classList.add('background-yellow')
+        });
+        toggleBackgroundButtonSelector.setAttribute('style', 'background-color: #c7900a');
+        photoSelector.setAttribute('style', 'box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem #c7900a');
+        weatherSelector.setAttribute('style', 'border: 0.5rem solid #c7900a');
+        allElementsUnderline.forEach(e => e.classList.remove('underline'));
+        allElementsUnderline.forEach(e => e.classList.add('underline-yellow'));   
+        mouseOverOutEvent('#694d05', '#c7900a');    
+          
+    } else {
+        bodySelector.classList.remove('background-dark');
+        bodySelector.classList.add('background-white');
+        elements.forEach(e => {
+            e.classList.remove('background-yellow');
+            e.classList.add('background-blue');   
+        }); 
+        toggleBackgroundButtonSelector.setAttribute('style', 'background-color: #4267b2');
+        photoSelector.setAttribute('style', 'box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem #4267b2');
+        weatherSelector.setAttribute('style', 'border: 0.5rem solid #4267b2');
+        allElementsUnderline.forEach(e => e.classList.remove('underline-yellow'));
+        allElementsUnderline.forEach(e => e.classList.add('underline'))  
+        mouseOverOutEvent('#29487d', '#4267b2');  
+    } 
+});
 
-// console.log(!!0);
+const mouseOverOutEvent = (a, b) => {
+    aLiAllSelectors.forEach(e => e['style']=`background-color: ${b}`); 
+    aLiAllSelectors.forEach(e => e.addEventListener('mouseover', function() {
+        return this['style'] = `background-color: ${a}`; }));
+    aLiAllSelectors.forEach(e => e.addEventListener('mouseout', function() {
+        return this['style'] = `background-color: ${b}`; })); 
+} 
 
-// console.log(5 > 1);
+mouseOverOutEvent('#29487d', '#4267b2', '#4267b2');
+  
 
-// console.log(0 || false || "abc" || 23);
 
-// console.log("abc" && 23 && "last");
+fetch('http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&APPID=a9d7c891178a4fcf66448f723467b291')
+.then(response => response.json())
+.then(data => weatherSelector.innerHTML=`<div class="weather-conditions">Weather in ${data.name} (${data.sys.country}) on ${myDateFunction(data.dt)} is: 
+<br><br>
+<span>Temperature: ${Number.parseInt(data.main.temp)-273}<temperatura>&#8451;</span><span>Pressure: ${data.main.pressure}<cisnienie>kPa</span></span></div>`)
 
-// var str = "234";
-// var bin = (+str).toString(2);
-// console.log(bin);
 
-// const b = "";
+const myDateFunction = function(data) {
+    const objectDate = new Date(data*1000);
+    const dzien = ['Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const miesiac = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Septemeber', 'November', 'December'];
+    
+    const endingFunction = function() {
+    let parameter = Number.parseInt(objectDate.getDate()%10);
+     switch(parameter){
+        case 1: return "st"; 
+        case 2: return "nd"; 
+        case 3: return "rd"; 
+        default: return "th";     
+    } 
+}
+    return `${dzien[objectDate.getDay()-1]} ${objectDate.getDate()}${endingFunction()} of ${miesiac[objectDate.getMonth()]} ${objectDate.getFullYear()}`;
+}
 
-// let count = 0;
-// console.log(count);
-// let result;
-// result = 1;
-// console.log(result);
 
-// const expenses = 250;
-// const myName = "Grzegorz";
-// const amount = 1000;
-
-// console.log(amount - expenses);
-
-// const story = "This is sample story";
-// const newStory = "This is awsome new story";
-// console.log(story.concat(" ", newStory));
-// console.log(`${story}`.concat(" ", newStory));
-
-// function add(a, b) {
-//    return a + b;
-// }
-
-// console.log(add(2, 4));
-
-// console.log(add(2, "1"));
-
-// console.log(add(2, "a", "b"));
-
-// console.log(add(2, null));
-
-// console.log(add(2, undefined));
-
-// const add = (a, b) => {
-//    return a + b;
-// };
-
-// console.log(add(2.33, 2.33));
-
-// const names = ["Adam", "Robert", "Piotr"];
-// const age = [23, 40, 25];
-// const mergedArray = names.concat(age);
-// console.log(mergedArray);
-// console.log(mergedArray.join());
-
-let numbers = [2, 3, 4, 5, 6, -1, 0];
-let numbers1 = [2, 3, 4, 5, 6, -1, 0];
-let numbers2 = [2, 3, 4, 5, 6, -1, 0];
-console.log(numbers);
-console.log(numbers.sort());
-console.log(numbers.sort().reverse());
-console.log(numbers1.reverse());
-console.log(numbers2.sort((a, b) => b - a));
-numbers2.push(-20, 100);
-console.log(numbers2);
-console.log(numbers2.sort());
+console.log(2+1)
